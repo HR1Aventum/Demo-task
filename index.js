@@ -27,7 +27,9 @@ let productData = [];
 //     productData.push(req.body);
 // } )
 
-
+app.get('/',(res,req)=>{
+    res.send("welcome")
+})
 app.post('/create',(req,res) => {
     fs.writeFile(`${req.body.filename}.${req.body.type}`,req.body.content,(err)=>{
         if(err) throw err;
