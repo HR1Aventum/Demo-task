@@ -31,18 +31,16 @@ app.get('/',(res,req)=>{
     res.send("welcome")
 })
 app.post('/create',(req,res) => {
-    fs.writeFile(`${req.body.filename}.${req.body.type}`,req.body.content,(err)=>{
-        if(err) throw err;
+    productData.push(req.body);
         res.json({
-            message:"file created!"
+            message:"product created"
         })
     } )
-})
 
 app.get('/product',(req,res)=>{
      res.json(productData)
 })
 
-app.listen(process.env,PORT |3000,()=>{
+app.listen(process.env,PORT || 3000,()=>{
     console.log("check @ port"+process.env.PORT)
 })
