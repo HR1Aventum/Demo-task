@@ -4,43 +4,18 @@ const fs = require('fs');
 const app = express();
 
 app.use(bodyParser.json());
-let productData = [];
-
-// app.get('/users',(req,res)=>{
-//     res.json([
-//         {
-//             name:"Person 1",
-//             age:20
-//         },
-//         {
-//             name:"Person 2",
-//             age:30
-//         },
-//         {
-//             name:"Person 3",
-//             age:12
-//         }
-//     ])
-// });
-
-// app.get('/product',(req,res)=>{
-//     productData.push(req.body);
-// } )
-
-app.get('/',(res,req)=>{
-    res.send("welcome")
-})
-app.post('/create',(req,res) => {
+let productData=[];
+app.post("/product",(req,res)=>{
     productData.push(req.body);
-        res.json({
-            message:"product created"
-        })
-    } )
+    res.json({
+        message:"success"
+    })
+} )
 
-app.get('/product',(req,res)=>{
-     res.json(productData)
+app.get("/product",(req,res)=>{
+    res.json(productData);
 })
 
-app.listen(process.env,PORT || 3000,()=>{
-    console.log("check @ port"+process.env.PORT)
+app.listen(3000,()=>{
+    console.log("go to localhost @ 3000")
 })
