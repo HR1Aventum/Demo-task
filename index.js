@@ -44,5 +44,5 @@ app.get('/product',(req,res)=>{
 })
 
 app.listen(process.env,PORT |3000,()=>{
-    console.log("check @ port 3000")
+    console.log("check @ port"+process.env.PORT)
 })
